@@ -1,0 +1,1052 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0 (Python 3.11.0 on win32)" generated="20221115 09:09:09.313" rpa="false" schemaversion="3">
+<suite id="s1" name="AmazonBestSellerTest" source="C:\Users\ett20521\PycharmProjects\amazonTest\tests\AmazonBestSellerTest.robot">
+<test id="s1-t1" name="Verify best seller any department sub categories" line="54">
+<kw name="Start Web Test" library="Common" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221115 09:09:09.476" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20221115 09:09:09.476" endtime="20221115 09:09:10.746"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20221115 09:09:10.747" endtime="20221115 09:09:10.866"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:09.476" endtime="20221115 09:09:10.866"/>
+</kw>
+<kw name="Page Load By Global User" library="Common">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL.${ENVIRONMENT}}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20221115 09:09:10.866" level="INFO">Opening url 'https://www.amazon.de/-/en/ref=nav_logo'</msg>
+<status status="PASS" starttime="20221115 09:09:10.866" endtime="20221115 09:09:11.948"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>${HELLO_EXPECTED_TEXT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20221115 09:09:11.948" endtime="20221115 09:09:11.992"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${helloActualText}</var>
+<arg>${HELLO_ELEMENT}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:12.015" level="INFO">${helloActualText} = Hello, sign in</msg>
+<status status="PASS" starttime="20221115 09:09:11.992" endtime="20221115 09:09:12.015"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${helloActualText}</arg>
+<arg>${HELLO_EXPECTED_TEXT}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20221115 09:09:12.015" endtime="20221115 09:09:12.015"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${ACCEPT_COOKIES}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:12.015" level="INFO">Clicking button 'id=sp-cc-accept'.</msg>
+<status status="PASS" starttime="20221115 09:09:12.015" endtime="20221115 09:09:12.082"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221115 09:09:14.083" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20221115 09:09:12.083" endtime="20221115 09:09:14.083"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:10.866" endtime="20221115 09:09:14.083"/>
+</kw>
+<kw name="Navigate to best sellers" library="BestSellers">
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>Best Sellers</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:14.083" level="INFO">Clicking link 'Best Sellers'.</msg>
+<status status="PASS" starttime="20221115 09:09:14.083" endtime="20221115 09:09:15.057"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Best Sellers</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20221115 09:09:15.057" endtime="20221115 09:09:15.092"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221115 09:09:17.092" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20221115 09:09:15.092" endtime="20221115 09:09:17.092"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:14.083" endtime="20221115 09:09:17.092"/>
+</kw>
+<kw name="Verify Best Seller Any Department Sub Catergories" library="BestSellers">
+<kw name="Compare Menu Items" library="Common">
+<arg>${ANY_DEPARTMENT}</arg>
+<arg>${BEST_SELLER_ANY_DEPARTMENT}</arg>
+<kw name="Create List" library="BuiltIn">
+<var>${actual_list}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20221115 09:09:17.092" level="INFO">${actual_list} = []</msg>
+<status status="PASS" starttime="20221115 09:09:17.092" endtime="20221115 09:09:17.092"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${element_count}</var>
+<arg>${SUB_ELEMENT}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.108" level="INFO">${element_count} = 39</msg>
+<status status="PASS" starttime="20221115 09:09:17.092" endtime="20221115 09:09:17.108"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>1</value>
+<value>${element_count} + 1</value>
+<iter>
+<var name="${i}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.142" level="INFO">${element_text} = Amazon Devices &amp; Accessories</msg>
+<status status="PASS" starttime="20221115 09:09:17.108" endtime="20221115 09:09:17.142"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.142" level="INFO">Amazon Devices &amp; Accessories</msg>
+<status status="PASS" starttime="20221115 09:09:17.142" endtime="20221115 09:09:17.142"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.142" endtime="20221115 09:09:17.142"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.108" endtime="20221115 09:09:17.142"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.158" level="INFO">${element_text} = Amazon Launchpad</msg>
+<status status="PASS" starttime="20221115 09:09:17.142" endtime="20221115 09:09:17.158"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.158" level="INFO">Amazon Launchpad</msg>
+<status status="PASS" starttime="20221115 09:09:17.158" endtime="20221115 09:09:17.158"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.158" endtime="20221115 09:09:17.158"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.142" endtime="20221115 09:09:17.158"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.173" level="INFO">${element_text} = Amazon Renewed</msg>
+<status status="PASS" starttime="20221115 09:09:17.158" endtime="20221115 09:09:17.173"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.173" level="INFO">Amazon Renewed</msg>
+<status status="PASS" starttime="20221115 09:09:17.173" endtime="20221115 09:09:17.173"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.173" endtime="20221115 09:09:17.173"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.158" endtime="20221115 09:09:17.173"/>
+</iter>
+<iter>
+<var name="${i}">4</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.189" level="INFO">${element_text} = Apps &amp; Games</msg>
+<status status="PASS" starttime="20221115 09:09:17.173" endtime="20221115 09:09:17.189"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.189" level="INFO">Apps &amp; Games</msg>
+<status status="PASS" starttime="20221115 09:09:17.189" endtime="20221115 09:09:17.189"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.189" endtime="20221115 09:09:17.189"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.173" endtime="20221115 09:09:17.189"/>
+</iter>
+<iter>
+<var name="${i}">5</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.189" level="INFO">${element_text} = Automotive</msg>
+<status status="PASS" starttime="20221115 09:09:17.189" endtime="20221115 09:09:17.189"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.189" level="INFO">Automotive</msg>
+<status status="PASS" starttime="20221115 09:09:17.189" endtime="20221115 09:09:17.189"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.189" endtime="20221115 09:09:17.189"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.189" endtime="20221115 09:09:17.189"/>
+</iter>
+<iter>
+<var name="${i}">6</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.204" level="INFO">${element_text} = Baby Products</msg>
+<status status="PASS" starttime="20221115 09:09:17.189" endtime="20221115 09:09:17.204"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.204" level="INFO">Baby Products</msg>
+<status status="PASS" starttime="20221115 09:09:17.204" endtime="20221115 09:09:17.204"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.204" endtime="20221115 09:09:17.204"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.189" endtime="20221115 09:09:17.204"/>
+</iter>
+<iter>
+<var name="${i}">7</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.227" level="INFO">${element_text} = Beauty</msg>
+<status status="PASS" starttime="20221115 09:09:17.204" endtime="20221115 09:09:17.227"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.227" level="INFO">Beauty</msg>
+<status status="PASS" starttime="20221115 09:09:17.227" endtime="20221115 09:09:17.227"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.227" endtime="20221115 09:09:17.227"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.204" endtime="20221115 09:09:17.227"/>
+</iter>
+<iter>
+<var name="${i}">8</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.242" level="INFO">${element_text} = Books</msg>
+<status status="PASS" starttime="20221115 09:09:17.227" endtime="20221115 09:09:17.242"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.242" level="INFO">Books</msg>
+<status status="PASS" starttime="20221115 09:09:17.242" endtime="20221115 09:09:17.242"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.242" endtime="20221115 09:09:17.242"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.227" endtime="20221115 09:09:17.242"/>
+</iter>
+<iter>
+<var name="${i}">9</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.258" level="INFO">${element_text} = Business, Industry &amp; Science</msg>
+<status status="PASS" starttime="20221115 09:09:17.242" endtime="20221115 09:09:17.258"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.258" level="INFO">Business, Industry &amp; Science</msg>
+<status status="PASS" starttime="20221115 09:09:17.258" endtime="20221115 09:09:17.258"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.258" endtime="20221115 09:09:17.258"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.242" endtime="20221115 09:09:17.258"/>
+</iter>
+<iter>
+<var name="${i}">10</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.273" level="INFO">${element_text} = Camera &amp; Photo</msg>
+<status status="PASS" starttime="20221115 09:09:17.258" endtime="20221115 09:09:17.273"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.273" level="INFO">Camera &amp; Photo</msg>
+<status status="PASS" starttime="20221115 09:09:17.273" endtime="20221115 09:09:17.273"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.273" endtime="20221115 09:09:17.273"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.258" endtime="20221115 09:09:17.273"/>
+</iter>
+<iter>
+<var name="${i}">11</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.289" level="INFO">${element_text} = CDs &amp; Vinyl</msg>
+<status status="PASS" starttime="20221115 09:09:17.273" endtime="20221115 09:09:17.289"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.289" level="INFO">CDs &amp; Vinyl</msg>
+<status status="PASS" starttime="20221115 09:09:17.289" endtime="20221115 09:09:17.289"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.289" endtime="20221115 09:09:17.289"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.273" endtime="20221115 09:09:17.289"/>
+</iter>
+<iter>
+<var name="${i}">12</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.305" level="INFO">${element_text} = Clothing</msg>
+<status status="PASS" starttime="20221115 09:09:17.289" endtime="20221115 09:09:17.305"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.305" level="INFO">Clothing</msg>
+<status status="PASS" starttime="20221115 09:09:17.305" endtime="20221115 09:09:17.305"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.305" endtime="20221115 09:09:17.305"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.289" endtime="20221115 09:09:17.305"/>
+</iter>
+<iter>
+<var name="${i}">13</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.327" level="INFO">${element_text} = Computer &amp; Accessories</msg>
+<status status="PASS" starttime="20221115 09:09:17.305" endtime="20221115 09:09:17.327"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.327" level="INFO">Computer &amp; Accessories</msg>
+<status status="PASS" starttime="20221115 09:09:17.327" endtime="20221115 09:09:17.327"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.327" endtime="20221115 09:09:17.327"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.305" endtime="20221115 09:09:17.327"/>
+</iter>
+<iter>
+<var name="${i}">14</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.343" level="INFO">${element_text} = Digital Music</msg>
+<status status="PASS" starttime="20221115 09:09:17.327" endtime="20221115 09:09:17.343"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.343" level="INFO">Digital Music</msg>
+<status status="PASS" starttime="20221115 09:09:17.343" endtime="20221115 09:09:17.343"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.343" endtime="20221115 09:09:17.343"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.327" endtime="20221115 09:09:17.343"/>
+</iter>
+<iter>
+<var name="${i}">15</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.374" level="INFO">${element_text} = DIY &amp; Tools</msg>
+<status status="PASS" starttime="20221115 09:09:17.343" endtime="20221115 09:09:17.374"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.374" level="INFO">DIY &amp; Tools</msg>
+<status status="PASS" starttime="20221115 09:09:17.374" endtime="20221115 09:09:17.374"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.374" endtime="20221115 09:09:17.374"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.343" endtime="20221115 09:09:17.374"/>
+</iter>
+<iter>
+<var name="${i}">16</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.389" level="INFO">${element_text} = DVD &amp; Blu-ray</msg>
+<status status="PASS" starttime="20221115 09:09:17.374" endtime="20221115 09:09:17.389"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.389" level="INFO">DVD &amp; Blu-ray</msg>
+<status status="PASS" starttime="20221115 09:09:17.389" endtime="20221115 09:09:17.389"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.389" endtime="20221115 09:09:17.389"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.374" endtime="20221115 09:09:17.389"/>
+</iter>
+<iter>
+<var name="${i}">17</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.405" level="INFO">${element_text} = Electronics &amp; Photo</msg>
+<status status="PASS" starttime="20221115 09:09:17.389" endtime="20221115 09:09:17.405"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.405" level="INFO">Electronics &amp; Photo</msg>
+<status status="PASS" starttime="20221115 09:09:17.405" endtime="20221115 09:09:17.405"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.405" endtime="20221115 09:09:17.406"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.389" endtime="20221115 09:09:17.406"/>
+</iter>
+<iter>
+<var name="${i}">18</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.431" level="INFO">${element_text} = Garden</msg>
+<status status="PASS" starttime="20221115 09:09:17.406" endtime="20221115 09:09:17.431"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.431" level="INFO">Garden</msg>
+<status status="PASS" starttime="20221115 09:09:17.431" endtime="20221115 09:09:17.431"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.431" endtime="20221115 09:09:17.431"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.406" endtime="20221115 09:09:17.431"/>
+</iter>
+<iter>
+<var name="${i}">19</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.446" level="INFO">${element_text} = Gift Cards</msg>
+<status status="PASS" starttime="20221115 09:09:17.431" endtime="20221115 09:09:17.446"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.446" level="INFO">Gift Cards</msg>
+<status status="PASS" starttime="20221115 09:09:17.446" endtime="20221115 09:09:17.446"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.446" endtime="20221115 09:09:17.446"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.431" endtime="20221115 09:09:17.446"/>
+</iter>
+<iter>
+<var name="${i}">20</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.446" level="INFO">${element_text} = Grocery</msg>
+<status status="PASS" starttime="20221115 09:09:17.446" endtime="20221115 09:09:17.446"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.462" level="INFO">Grocery</msg>
+<status status="PASS" starttime="20221115 09:09:17.446" endtime="20221115 09:09:17.462"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.462" endtime="20221115 09:09:17.462"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.446" endtime="20221115 09:09:17.462"/>
+</iter>
+<iter>
+<var name="${i}">21</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.478" level="INFO">${element_text} = Handmade Products</msg>
+<status status="PASS" starttime="20221115 09:09:17.462" endtime="20221115 09:09:17.478"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.478" level="INFO">Handmade Products</msg>
+<status status="PASS" starttime="20221115 09:09:17.478" endtime="20221115 09:09:17.478"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.478" endtime="20221115 09:09:17.478"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.462" endtime="20221115 09:09:17.478"/>
+</iter>
+<iter>
+<var name="${i}">22</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.493" level="INFO">${element_text} = Health &amp; Personal Care</msg>
+<status status="PASS" starttime="20221115 09:09:17.478" endtime="20221115 09:09:17.493"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.493" level="INFO">Health &amp; Personal Care</msg>
+<status status="PASS" starttime="20221115 09:09:17.493" endtime="20221115 09:09:17.493"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.493" endtime="20221115 09:09:17.493"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.478" endtime="20221115 09:09:17.493"/>
+</iter>
+<iter>
+<var name="${i}">23</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.509" level="INFO">${element_text} = Home &amp; Kitchen</msg>
+<status status="PASS" starttime="20221115 09:09:17.493" endtime="20221115 09:09:17.509"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.509" level="INFO">Home &amp; Kitchen</msg>
+<status status="PASS" starttime="20221115 09:09:17.509" endtime="20221115 09:09:17.509"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.509" endtime="20221115 09:09:17.509"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.493" endtime="20221115 09:09:17.509"/>
+</iter>
+<iter>
+<var name="${i}">24</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.527" level="INFO">${element_text} = Jewellery</msg>
+<status status="PASS" starttime="20221115 09:09:17.509" endtime="20221115 09:09:17.527"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.527" level="INFO">Jewellery</msg>
+<status status="PASS" starttime="20221115 09:09:17.527" endtime="20221115 09:09:17.527"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.527" endtime="20221115 09:09:17.527"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.509" endtime="20221115 09:09:17.527"/>
+</iter>
+<iter>
+<var name="${i}">25</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.527" level="INFO">${element_text} = Kindle Store</msg>
+<status status="PASS" starttime="20221115 09:09:17.527" endtime="20221115 09:09:17.527"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.527" level="INFO">Kindle Store</msg>
+<status status="PASS" starttime="20221115 09:09:17.527" endtime="20221115 09:09:17.527"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.527" endtime="20221115 09:09:17.543"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.527" endtime="20221115 09:09:17.543"/>
+</iter>
+<iter>
+<var name="${i}">26</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.543" level="INFO">${element_text} = Large Appliances</msg>
+<status status="PASS" starttime="20221115 09:09:17.543" endtime="20221115 09:09:17.543"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.543" level="INFO">Large Appliances</msg>
+<status status="PASS" starttime="20221115 09:09:17.543" endtime="20221115 09:09:17.543"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.543" endtime="20221115 09:09:17.543"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.543" endtime="20221115 09:09:17.543"/>
+</iter>
+<iter>
+<var name="${i}">27</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.574" level="INFO">${element_text} = Lighting</msg>
+<status status="PASS" starttime="20221115 09:09:17.543" endtime="20221115 09:09:17.574"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.574" level="INFO">Lighting</msg>
+<status status="PASS" starttime="20221115 09:09:17.574" endtime="20221115 09:09:17.574"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.574" endtime="20221115 09:09:17.574"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.543" endtime="20221115 09:09:17.574"/>
+</iter>
+<iter>
+<var name="${i}">28</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.590" level="INFO">${element_text} = Luggage</msg>
+<status status="PASS" starttime="20221115 09:09:17.574" endtime="20221115 09:09:17.590"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.590" level="INFO">Luggage</msg>
+<status status="PASS" starttime="20221115 09:09:17.590" endtime="20221115 09:09:17.590"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.590" endtime="20221115 09:09:17.590"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.574" endtime="20221115 09:09:17.590"/>
+</iter>
+<iter>
+<var name="${i}">29</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.605" level="INFO">${element_text} = Magazines</msg>
+<status status="PASS" starttime="20221115 09:09:17.590" endtime="20221115 09:09:17.605"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.605" level="INFO">Magazines</msg>
+<status status="PASS" starttime="20221115 09:09:17.605" endtime="20221115 09:09:17.605"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.605" endtime="20221115 09:09:17.605"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.590" endtime="20221115 09:09:17.605"/>
+</iter>
+<iter>
+<var name="${i}">30</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.627" level="INFO">${element_text} = Musical Instruments &amp; DJ</msg>
+<status status="PASS" starttime="20221115 09:09:17.605" endtime="20221115 09:09:17.627"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.627" level="INFO">Musical Instruments &amp; DJ</msg>
+<status status="PASS" starttime="20221115 09:09:17.627" endtime="20221115 09:09:17.627"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.627" endtime="20221115 09:09:17.627"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.605" endtime="20221115 09:09:17.627"/>
+</iter>
+<iter>
+<var name="${i}">31</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.659" level="INFO">${element_text} = PC &amp; Video Games</msg>
+<status status="PASS" starttime="20221115 09:09:17.627" endtime="20221115 09:09:17.659"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.659" level="INFO">PC &amp; Video Games</msg>
+<status status="PASS" starttime="20221115 09:09:17.659" endtime="20221115 09:09:17.659"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.659" endtime="20221115 09:09:17.659"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.627" endtime="20221115 09:09:17.659"/>
+</iter>
+<iter>
+<var name="${i}">32</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.674" level="INFO">${element_text} = Pet Supplies</msg>
+<status status="PASS" starttime="20221115 09:09:17.659" endtime="20221115 09:09:17.674"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.674" level="INFO">Pet Supplies</msg>
+<status status="PASS" starttime="20221115 09:09:17.674" endtime="20221115 09:09:17.674"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.674" endtime="20221115 09:09:17.674"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.659" endtime="20221115 09:09:17.674"/>
+</iter>
+<iter>
+<var name="${i}">33</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.690" level="INFO">${element_text} = Prime Video</msg>
+<status status="PASS" starttime="20221115 09:09:17.674" endtime="20221115 09:09:17.690"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.690" level="INFO">Prime Video</msg>
+<status status="PASS" starttime="20221115 09:09:17.690" endtime="20221115 09:09:17.690"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.690" endtime="20221115 09:09:17.690"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.674" endtime="20221115 09:09:17.690"/>
+</iter>
+<iter>
+<var name="${i}">34</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.706" level="INFO">${element_text} = Shoes &amp; Bags</msg>
+<status status="PASS" starttime="20221115 09:09:17.690" endtime="20221115 09:09:17.706"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.706" level="INFO">Shoes &amp; Bags</msg>
+<status status="PASS" starttime="20221115 09:09:17.706" endtime="20221115 09:09:17.706"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.706" endtime="20221115 09:09:17.706"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.690" endtime="20221115 09:09:17.706"/>
+</iter>
+<iter>
+<var name="${i}">35</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.728" level="INFO">${element_text} = Software</msg>
+<status status="PASS" starttime="20221115 09:09:17.706" endtime="20221115 09:09:17.728"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.728" level="INFO">Software</msg>
+<status status="PASS" starttime="20221115 09:09:17.728" endtime="20221115 09:09:17.728"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.728" endtime="20221115 09:09:17.728"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.706" endtime="20221115 09:09:17.728"/>
+</iter>
+<iter>
+<var name="${i}">36</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.743" level="INFO">${element_text} = Sports &amp; Outdoors</msg>
+<status status="PASS" starttime="20221115 09:09:17.728" endtime="20221115 09:09:17.743"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.743" level="INFO">Sports &amp; Outdoors</msg>
+<status status="PASS" starttime="20221115 09:09:17.743" endtime="20221115 09:09:17.743"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.743" endtime="20221115 09:09:17.743"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.728" endtime="20221115 09:09:17.743"/>
+</iter>
+<iter>
+<var name="${i}">37</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.759" level="INFO">${element_text} = Stationery &amp; Office Supplies</msg>
+<status status="PASS" starttime="20221115 09:09:17.743" endtime="20221115 09:09:17.759"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.759" level="INFO">Stationery &amp; Office Supplies</msg>
+<status status="PASS" starttime="20221115 09:09:17.759" endtime="20221115 09:09:17.759"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.759" endtime="20221115 09:09:17.759"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.743" endtime="20221115 09:09:17.759"/>
+</iter>
+<iter>
+<var name="${i}">38</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.775" level="INFO">${element_text} = Toys</msg>
+<status status="PASS" starttime="20221115 09:09:17.759" endtime="20221115 09:09:17.775"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.775" level="INFO">Toys</msg>
+<status status="PASS" starttime="20221115 09:09:17.775" endtime="20221115 09:09:17.775"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.775" endtime="20221115 09:09:17.775"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.759" endtime="20221115 09:09:17.775"/>
+</iter>
+<iter>
+<var name="${i}">39</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${element_text}</var>
+<arg>xpath=(${SUB_ELEMENT})[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221115 09:09:17.790" level="INFO">${element_text} = Watches</msg>
+<status status="PASS" starttime="20221115 09:09:17.775" endtime="20221115 09:09:17.790"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${element_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.790" level="INFO">Watches</msg>
+<status status="PASS" starttime="20221115 09:09:17.790" endtime="20221115 09:09:17.790"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${actual_list}</arg>
+<arg>${element_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20221115 09:09:17.790" endtime="20221115 09:09:17.790"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.775" endtime="20221115 09:09:17.790"/>
+</iter>
+<status status="PASS" starttime="20221115 09:09:17.108" endtime="20221115 09:09:17.790"/>
+</for>
+<kw name="Log" library="BuiltIn">
+<arg>${actual_list}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221115 09:09:17.790" level="INFO">['Amazon Devices &amp; Accessories', 'Amazon Launchpad', 'Amazon Renewed', 'Apps &amp; Games', 'Automotive', 'Baby Products', 'Beauty', 'Books', 'Business, Industry &amp; Science', 'Camera &amp; Photo', 'CDs &amp; Vinyl', 'Clothing', 'Computer &amp; Accessories', 'Digital Music', 'DIY &amp; Tools', 'DVD &amp; Blu-ray', 'Electronics &amp; Photo', 'Garden', 'Gift Cards', 'Grocery', 'Handmade Products', 'Health &amp; Personal Care', 'Home &amp; Kitchen', 'Jewellery', 'Kindle Store', 'Large Appliances', 'Lighting', 'Luggage', 'Magazines', 'Musical Instruments &amp; DJ', 'PC &amp; Video Games', 'Pet Supplies', 'Prime Video', 'Shoes &amp; Bags', 'Software', 'Sports &amp; Outdoors', 'Stationery &amp; Office Supplies', 'Toys', 'Watches']</msg>
+<status status="PASS" starttime="20221115 09:09:17.790" endtime="20221115 09:09:17.790"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${actual_sub_menu_list}</var>
+<arg>${actual_list}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221115 09:09:17.790" level="INFO">${actual_sub_menu_list} = ['Amazon Devices &amp; Accessories', 'Amazon Launchpad', 'Amazon Renewed', 'Apps &amp; Games', 'Automotive', 'Baby Products', 'Beauty', 'Books', 'Business, Industry &amp; Science', 'Camera &amp; Photo', 'CDs &amp; Vinyl'...</msg>
+<status status="PASS" starttime="20221115 09:09:17.790" endtime="20221115 09:09:17.790"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${actual_sub_menu_list}</arg>
+<arg>${SUB_MENU_ITEMS}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20221115 09:09:17.790" endtime="20221115 09:09:17.790"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.092" endtime="20221115 09:09:17.790"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.092" endtime="20221115 09:09:17.790"/>
+</kw>
+<kw name="End Web Test" library="Common" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20221115 09:09:17.790" endtime="20221115 09:09:19.996"/>
+</kw>
+<status status="PASS" starttime="20221115 09:09:17.790" endtime="20221115 09:09:19.996"/>
+</kw>
+<doc>This test case verify that any user is able to view the Amazon Best Seller page</doc>
+<tag>BestSellerPage</tag>
+<tag>Smoke</tag>
+<tag>TC_BS_007</tag>
+<status status="PASS" starttime="20221115 09:09:09.476" endtime="20221115 09:09:19.996"/>
+</test>
+<doc>This is automation test for AMAZON web site</doc>
+<status status="PASS" starttime="20221115 09:09:09.313" endtime="20221115 09:09:19.996"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">BestSellerPage</stat>
+<stat pass="1" fail="0" skip="0">Smoke</stat>
+<stat pass="1" fail="0" skip="0">TC_BS_007</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="AmazonBestSellerTest">AmazonBestSellerTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
