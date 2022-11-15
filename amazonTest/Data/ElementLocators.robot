@@ -31,3 +31,13 @@ ${BS_HOME} =                    //div[@id="anonCarousel6"]
 
 ${ANY_DEPARTMENT} =             //div[@role="treeitem"]/a
 
+${BEST_SELLER_TOP_ITEM} =       (//a[@tabindex="-1"])[2]
+${BEST_SELLER_ITEM} =           (//a[@tabindex="-1"])[2]/following-sibling::a/span/div
+
+${BEST_SELLER_TAG} =            //i[@class="a-icon a-icon-addon p13n-best-seller-badge"]
+
+${ADD_TO_BASKET} =              (//input[@id="add-to-cart-button"])[1]
+${ITEM_PRICE} =                 //div[@id="corePrice_feature_div"]/div/span/span[@class="a-offscreen"]
+${SUB_TOTAL} =                  //span[@id="attach-accessory-cart-subtotal"]
+
+

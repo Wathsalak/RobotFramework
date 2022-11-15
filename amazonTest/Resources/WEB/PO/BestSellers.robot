@@ -5,6 +5,11 @@ Library         Collections
 Resource        ../../../Data/ElementLocators.robot
 Resource        ../../../Resources/WEB/Common.robot
 
+
+*** Variables ***
+${SELECTED_ITEM_NAME}
+${SELECTED_ITEM_PRICE}
+
 *** Keywords ***
 
 Navigate to best sellers
@@ -44,3 +49,28 @@ Get the count and compare
 
 Verify Best Seller Any Department Sub Catergories
     Compare Menu Items              ${ANY_DEPARTMENT}       ${BEST_SELLER_ANY_DEPARTMENT}
+
+Select the best seller item from the list
+    ${text} =                       get text                ${BEST_SELLER_ITEM}
+    ${SELECTED_ITEM_NAME} =         set global variable     ${text}
+    click element                   ${BEST_SELLER_TOP_ITEM}
+
+Verify the selected item name
+    wait until page contains        ${SELECTED_ITEM_NAME}
+
+Verify the Best Seller Badge
+    ${tag} =                        get text                ${BEST_SELLER_TAG}
+    should be equal                 ${tag}                  ${BEST_SELLER_BADGE}
+
+Click on Add to Basket Button
+    ${price} =                      get text                ${ITEM_PRICE}
+    click element                   ${ADD_TO_BASKET}
+    wait until page contains        Added to Basket
+    Verify basket subtotal          ${price}
+
+Verify basket subtotal
+    [Arguments]                     ${expected_price}
+    ${actual_price} =               get text                ${SUB_TOTAL}
+    should be equal                 ${actual_price}         ${expected_price}
+
+
