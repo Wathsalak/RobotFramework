@@ -40,4 +40,8 @@ ${ADD_TO_BASKET} =              (//input[@id="add-to-cart-button"])[1]
 ${ITEM_PRICE} =                 //div[@id="corePrice_feature_div"]/div/span/span[@class="a-offscreen"]
 ${SUB_TOTAL} =                  //span[@id="attach-accessory-cart-subtotal"]
 
-
+${SEARCH_FIELD} =               //input[@id="twotabsearchtextbox"]
+${SEARCH_ICON} =                //input[@id="nav-search-submit-button"]
+${SEARCHED_ITEM} =              xpath=(//span[@class="a-size-base-plus a-color-base a-text-normal"])[1]
+${SEARCHED_ITEM_PRICE} =        xpath=(//span[@class="a-price-whole"])[1]
+${SEARCHED_ITEM_PRICE_LIST} =   (//span[@class="a-price-whole"])
