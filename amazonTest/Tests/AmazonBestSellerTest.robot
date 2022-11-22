@@ -3,6 +3,7 @@ Documentation   This is automation test for AMAZON web site
 
 Resource        ../Resources/WEB/Common.robot
 Resource        ../Resources/WEB/PO/BestSellers.robot
+Library         ../Libraries/CustomLibrary.py
 
 Test Setup      Start Web Test
 Test Teardown   End Web Test
@@ -43,6 +44,7 @@ Verify user is able see best seller items for Handmade Products category
     Page Load By Global User
     Navigate to best sellers
     Verify six items displayed on Best Sellers in Handmade Products category
+    Handling list
 
 Verify user is able see best seller items for Luggage category
     [Documentation]                     This test case verify that any user is able to view the Amazon Best Seller page
@@ -67,4 +69,5 @@ Verfiy user is able to add Best Seller items to shopping cart
     Verify the selected item name
     Verify the Best Seller Badge
     Click on Add to Basket Button
+
 
